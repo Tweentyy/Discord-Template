@@ -46,7 +46,7 @@ export class InteractionFollowUp extends InteractionConstructor {
 }
 
 export class InteractionReply extends InteractionConstructor {
-	constructor(data: BaseMessageOptions) {
+	constructor(data: string | BaseMessageOptions) {
 		super(data);
 	}
 
