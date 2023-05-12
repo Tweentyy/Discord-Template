@@ -8,18 +8,16 @@ export default {
 		once: true,
 	},
 	async execute(client: ClientConstructor) {
-		if (client.isReady()) {
-			log("info", `${client.user.username} en ligne et opérationnel.`);
+		log("info", `${client.user!.username} en ligne et opérationnel.`);
 
-			const guilds = await client.guilds.fetch();
-			for (const guildId of guilds.keys()) {
-				const guild = await client.guilds.fetch(guildId);
-				await guild.members.fetch();
-				await guild.roles.fetch();
-				await guild.channels.fetch();
-			}
-
-			await client.initializeCommands();
+		const guilds = await client.guilds.fetch();
+		for (const guildId of guilds.keys()) {
+			const guild = await client.guilds.fetch(guildId);
+			await guild.members.fetch();
+			await guild.roles.fetch();
+			await guild.channels.fetch();
 		}
+
+		await client.initializeCommands();
 	},
 };
