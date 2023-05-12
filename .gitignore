@@ -108,3 +108,4 @@ dist
 
 data/
 package-lock.json
+lib/
